@@ -56,11 +56,11 @@
             <div class="is-size-5 publication-authors">
               <!-- Paper authors -->
               <span class="author-block">
-                <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">Rohan Myer Krishnan</a><sup>*</sup>,</span>
+                <a href="https://scholar.google.com/citations?user=koxiPYIAAAAJ&hl=en&oi=sra" target="_blank">Rohan Myer Krishnan</a><sup>*</sup>,</span>
                 <span class="author-block">
                   <a href="https://zitiantang.github.io/" target="_blank">Zitian Tang</a><sup>*</sup>,</span>
                   <span class="author-block">
-                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Zhiqiu Yu</a>
+                    <a href="https://brown-palm.github.io/Spacewalk-18" target="_blank">Zhiqiu Yu</a>
                   </span>,
                   <span class="author-block">
                     <a href="https://chensun.me/" target="_blank">Chen Sun</a>
@@ -109,7 +109,7 @@
 
                   <!-- Github link -->
                   <span class="link-block">
-                    <a href="https://github.com/YOUR REPO HERE" target="_blank"
+                    <a href="https://brown-palm.github.io/Spacewalk-18" target="_blank"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-github"></i>
@@ -219,12 +219,43 @@
 </section> -->
 <!-- End video carousel -->
 
+<!-- Evaluations-->
+<section class="hero is-small">
+  <div class="hero-body" style="font-size: large;">
+    <div class="container">
+      <h2 class="title is-3">Statistics</h2>
+        <p>Spacewalk-18 annotates 18 spacewalk videos from 2019 to 2023 with a total length of 96 hours. On average, each spacewalk task consists of 25 steps. Each step has an average of 12 minutes of animation video. </p>
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="item">
+           <!-- Your image here -->
+            <img src="static/images/merged_durations.png" alt="durations"/>
+           <h2 class="subtitle has-text-centered">
+            Distribution of shot durations
+           </h2>
+         </div>
+         <div class="item">
+           <!-- Your image here -->
+           <img src="static/images/wordcloud.png" alt="wordcloud"/>
+           <h2 class="subtitle has-text-centered">
+            Word cloud of the transcriptions in Spacewalk-18
+           </h2>
+         </div>
+     </div>
+      </div>
+    </div>
+  </section>
+<!-- End Evaluations-->
+
 <!-- Tasks-->
 <section class="hero is-small">
-  <div class="hero-body">
+  <div class="hero-body" style="font-size: large;">
     <div class="container">
       <h2 class="title is-3">Tasks</h2>
-      <p></p>
+      <p>Two multimodal long-form video understanding tasks are defined on Spacewalk-18 - <b> step recognition </b> and <b> intra-video retrieval</b>.</p>
+      <br>
+      <p><b> Step recognition.</b> Given a timestamp and a context window length, step recognition aims to recognize the task step that the timestamp belongs to.</p>
+      <br>
+      <p><b> Intra-video retrieval.</b> Given a query timestamp, two candidate timestamps with the same time distances to the query, and a context window length, intra-video retrieval aims to determine the candidate that belongs to the same task step as the query.</p>
       <div class="container">
         <div class="hero-body">
           <img src="static/images/task_img.png" alt="tasks"/>
@@ -238,7 +269,7 @@
 
 <!-- Evaluations-->
 <section class="hero is-small">
-  <div class="hero-body">
+  <div class="hero-body" style="font-size: large;">
     <div class="container">
       <h2 class="title is-3">Evaluation Results</h2>
         <p></p>
