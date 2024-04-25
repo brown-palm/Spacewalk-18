@@ -52,7 +52,7 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">Spacewalk-18: A Benchmark for Multimodal and Long-form Procedural Video Understanding in Novel Domains</h1>
+            <h1 class="title is-2 publication-title">Spacewalk-18: A Benchmark for Multimodal and Long-form Procedural Video Understanding</h1>
             <div class="is-size-5 publication-authors">
               <!-- Paper authors -->
               <span class="author-block">
@@ -109,12 +109,12 @@
 
                   <!-- Github link -->
                   <span class="link-block">
-                    <a href="https://brown-palm.github.io/Spacewalk-18" target="_blank"
+                    <a href="https://github.com/brown-palm/Spacewalk-18-benchmark" target="_blank"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-github"></i>
                     </span>
-                    <span>Code (coming soon)</span>
+                    <span>Dataset</span>
                   </a>
                 </span>
 
@@ -152,7 +152,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Learning from videos is an emerging research area that enables robots to acquire skills from human demonstrations, such as procedural videos. To do this, video-language models must be able to obtain structured understandings, such as the temporal segmentation of a demonstration into sequences of actions and skills, and to generalize the understandings to novel domains. In pursuit of this goal, we introduce Spacewalk-18, a benchmark containing two tasks: (1) step recognition and (2) intra-video retrieval over a dataset of temporally segmented and labeled tasks in International Space Station spacewalk recordings. In tandem, the two tasks quantify a model's ability to make use of: (1) out-of-domain visual information; (2) a high temporal context window; and (3) multimodal (text + video) domains. This departs from existing benchmarks for procedural video understanding, which typically deal with short context lengths and can be solved with a single modality. Spacewalk-18, with its inherent multimodal and long-form complexity, exposes the high difficulty of task recognition and segmentation. We find that state-of-the-art methods perform poorly on our benchmark, demonstrating that the goal of generalizable procedural video understanding models is far out and underscoring the need to develop new approaches to these tasks. Data, model, and code will be publicly released.
+            Learning from videos is an emerging research area that enables robots to acquire skills from human demonstrations, such as procedural videos. To do this, video-language models must be able to obtain structured understandings, such as the temporal segmentation of a demonstration into sequences of actions and skills, and to generalize the understandings to novel domains. In pursuit of this goal, we introduce Spacewalk-18, a benchmark containing two tasks: (1) step recognition and (2) intra-video retrieval over a dataset of temporally segmented and labeled tasks in International Space Station spacewalk recordings. In tandem, the two tasks quantify a model's ability to make use of: (1) out-of-domain visual information; (2) a high temporal context window; and (3) multimodal (e.g. visual and speech) domains. This departs from existing benchmarks for procedural video understanding, which typically deal with short context lengths and can be solved with a single modality. Spacewalk-18, with its inherent multimodal and long-form complexity, exposes the high difficulty of task recognition and segmentation. We find that state-of-the-art methods perform poorly on our benchmark, but improvements can be obtained by incorporating information from longer-range temporal context across different modalities. Our experiments underscore the need to develop new approaches to these tasks.
           </p>
         </div>
       </div>
@@ -223,6 +223,11 @@
   <div class="hero-body" style="font-size: large;">
     <div class="container">
       <h2 class="title is-3">Spacewalk-18 Dataset</h2>
+      <div class="container">
+        <div class="hero-body">
+          <img src="static/videos/teaser.gif" alt="teaser"/>
+        </div>
+      </div>
      </div>
       </div>
     </div>
@@ -278,11 +283,11 @@
 <!--End Tasks -->
 
 <!-- Evaluations-->
-<section class="hero is-small">
+<section class="hero is-small"> 
   <div class="hero-body" style="font-size: large;">
     <div class="container">
       <h2 class="title is-3">Evaluation Results</h2>
-        <p>We evaluate a few pretrained models in both zero-shot and last-layer fine-tuning scenarios. All the models perform poorly on our tasks and significantly worse than humans.</p>
+        <p>We evaluate a few pretrained models in both zero-shot and fine-tuning scenarios. All the models perform poorly on our tasks and significantly worse than humans.</p>
         <div id="results-carousel" class="carousel results-carousel">
           <div class="item">
            <!-- Your image here -->
