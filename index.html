@@ -52,13 +52,13 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-2 publication-title">Spacewalk-18: A Benchmark for Multimodal and Long-form Procedural Video Understanding</h1>
+            <h1 class="title is-2 publication-title">Spacewalk-18:<br> A Benchmark for Multimodal and Long-form Procedural Video Understanding in Novel Domains</h1>
             <div class="is-size-5 publication-authors">
               <!-- Paper authors -->
               <span class="author-block">
-                <a href="https://scholar.google.com/citations?user=koxiPYIAAAAJ&hl=en&oi=sra" target="_blank">Rohan Myer Krishnan</a><sup>*</sup>,</span>
+                <a href="https://zitiantang.github.io/" target="_blank">Zitian Tang</a><sup>*</sup>,</span>
                 <span class="author-block">
-                  <a href="https://zitiantang.github.io/" target="_blank">Zitian Tang</a><sup>*</sup>,</span>
+                  <a href="https://scholar.google.com/citations?user=koxiPYIAAAAJ&hl=en&oi=sra" target="_blank">Rohan Myer Krishnan</a><sup>*</sup>,</span>
                   <span class="author-block">
                     <a href="https://brown-palm.github.io/Spacewalk-18" target="_blank">Zhiqiu Yu</a>
                   </span>,
@@ -152,7 +152,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Learning from videos is an emerging research area that enables robots to acquire skills from human demonstrations, such as procedural videos. To do this, video-language models must be able to obtain structured understandings, such as the temporal segmentation of a demonstration into sequences of actions and skills, and to generalize the understandings to novel domains. In pursuit of this goal, we introduce Spacewalk-18, a benchmark containing two tasks: (1) step recognition and (2) intra-video retrieval over a dataset of temporally segmented and labeled tasks in International Space Station spacewalk recordings. In tandem, the two tasks quantify a model's ability to make use of: (1) out-of-domain visual information; (2) a high temporal context window; and (3) multimodal (e.g. visual and speech) domains. This departs from existing benchmarks for procedural video understanding, which typically deal with short context lengths and can be solved with a single modality. Spacewalk-18, with its inherent multimodal and long-form complexity, exposes the high difficulty of task recognition and segmentation. We find that state-of-the-art methods perform poorly on our benchmark, but improvements can be obtained by incorporating information from longer-range temporal context across different modalities. Our experiments underscore the need to develop new approaches to these tasks.
+            Learning from (procedural) videos has increasingly served as a pathway for embodied agents to acquire skills from human demonstrations. To do this, video understanding models must be able to obtain structured understandings, such as the temporal segmentation of a demonstration into sequences of actions and skills, and to generalize the understandings to novel environments, tasks, and problem domains. In pursuit of this goal, we introduce Spacewalk-18, a benchmark containing two tasks: (1) step recognition and (2) video question answering, over a dataset of temporally segmented and labeled tasks in International Space Station spacewalk recordings. In tandem, the two tasks quantify a model's ability to: (1) generalize to novel domains; (2) utilize long temporal context and multimodal (e.g., visual and speech) information. Our extensive experimental analysis highlights the challenges of Spacewalk-18, but also suggests best practices for domain generalization and long-form understanding. Notably, we discover a promising adaptation via summarization technique that leads to significant performance improvement without model fine-tuning.
           </p>
         </div>
       </div>
@@ -222,85 +222,212 @@
 <section class="hero is-small">
   <div class="hero-body" style="font-size: large;">
     <div class="container">
-      <h2 class="title is-3">Spacewalk-18 Dataset</h2>
-      <div class="container">
-        <div class="hero-body">
-          <img src="static/videos/teaser.gif" alt="teaser"/>
-        </div>
+      <div class="hero-body">
+        <img src="static/videos/teaser.gif" alt="teaser" style="width: 80%; height: auto; display: block; margin: 0 auto;"/>
       </div>
+    </div>
+    <div class="container">
+      <h2 class="title is-3">Spacewalk-18 Dataset</h2>
+      <img src="static/images/annotation_illustration.png" alt="annotation" style="width: 50%; height: auto; display: block; margin: 0 auto;"/>
+      <br>  
+      <p style="text-align: justify; width: 80%; margin: 0 auto;">
+          In spacewalk missions, astronauts leave the space station to perform various tasks (e.g., equipment repairs).
+          While each spacewalk mission often lasts a few hours, it follows a fairly rigid agenda, which is reviewed step by step in a short animated video.
+          In Spacewalk-18, we collected 18 spacewalk recordings from the web.
+          As illustrated above, the steps in spacewalk mission are manually localized in the videos.
+          In the following video, we showcase a few annotated steps, each including its animation and several corresponding clips from the spacewalk videos.
+        </p>
+          <div class="item item-video1" style="display: flex; justify-content: center; align-items: center;">
+            <video poster="" id="video1" controls loop height="70%" width="70%">
+              <source src="static/videos/annotations.mp4"
+              type="video/mp4">
+            </video>
+          </div>
      </div>
       </div>
     </div>
   </section>
 <!-- End Intro-->
-
+<hr>
 <!-- Statistics-->
 <section class="hero is-small">
   <div class="hero-body" style="font-size: large;">
     <div class="container">
       <h2 class="title is-3">Statistics</h2>
-        <p>Spacewalk-18 annotates 18 spacewalk videos from 2019 to 2023 with a total length of 96 hours. On average, each spacewalk task consists of 25 steps. Each step has an average of 12 minutes of animation video. </p>
+        <p style="text-align: justify; width: 80%; margin: 0 auto;">
+          Spacewalk-18 includes 18 spacewalk videos from 2019 to 2023 with a total length of 96 hours.
+          There are 455 step labels across the dataset.
+          On average, each spacewalk mission consists of 25 steps.
+          More statistics are in the following figures.
+        </p>
         <div id="results-carousel" class="carousel results-carousel">
           <div class="item">
-           <!-- Your image here -->
-            <img src="static/images/merged_durations.png" alt="durations"/>
-           <h2 class="subtitle has-text-centered">
-            Distribution of shot durations
-           </h2>
-         </div>
-         <div class="item">
-           <!-- Your image here -->
-           <img src="static/images/wordcloud.png" alt="wordcloud"/>
-           <h2 class="subtitle has-text-centered">
-            Word cloud of the transcriptions
-           </h2>
-         </div>
+            <!-- Your image here -->
+             <img src="static/images/duration_statistics.jpg" alt="obj_act_distribution" style="width: 50%; height: auto;"/>
+            <h2 class="subtitle has-text-centered" style="width: 70%; margin: 0 auto;">
+            <b>Distribution of (top) Duration of video clips, (middle) Duration of steps, and (bottom) Number of clips per step.</b>
+            A clip refers to a consecutive video segment that corresponds to the same step.
+          </h2>
+          </div>
+          <div class="item">
+            <!-- Your image here -->
+             <img src="static/images/action_object_distribution.png" alt="obj_act_distribution" style="width: 80%; height: auto;"/>
+            <h2 class="subtitle has-text-centered" style="width: 70%; margin: 0 auto;">
+            <b>Distribution of objects and actions.</b>
+            There are 51 diverse objects and 47 atomic actions occur in the step labels. This figure shows the frequency of each object and action in all the steps.
+          </h2>
+          </div>
      </div>
       </div>
     </div>
   </section>
 <!-- End Statistics-->
-
+<hr>
 <!-- Tasks-->
 <section class="hero is-small">
   <div class="hero-body" style="font-size: large;">
     <div class="container">
       <h2 class="title is-3">Tasks</h2>
-      <p>Two multimodal long-form video understanding tasks are defined on Spacewalk-18 - <b> step recognition </b> and <b> intra-video retrieval</b>.</p>
+      <p style="text-align: justify; width: 80%; margin: 0 auto;">
+        We propose two long-form video understanding tasks on Spacewalk-18: <b>Step recognition</b> and <b>Video question answering</b>.
+      </p>
       <br>
-      <p><b> Step recognition.</b> Given a timestamp and a context window length, step recognition aims to recognize the task step that the timestamp belongs to.</p>
+      <h3 class="title is-4 has-text-centered">Step Recognition</h3>
+      <p style="text-align: justify; width: 80%; margin: 0 auto;">
+        Step recognition gives a spacewalk video clip and aims to recognize the step corresponding to the middle of the video.<br>
+        <b>Examples:</b>
+      </p>
       <br>
-      <p><b> Intra-video retrieval.</b> Given a query timestamp, two candidate timestamps with the same time distances to the query, and a context window length, intra-video retrieval aims to determine the candidate that belongs to the same task step as the query.</p>
-      <div class="container">
-        <div class="hero-body">
-          <img src="static/images/task_img.png" alt="tasks"/>
+      <div class="columns is-centered" style="width: 80%; margin: 0 auto;">
+        <div class="column is-half has-text-centered">
+          <video controls width="90%">
+            <source src="static/videos/step_recog1.mp4" type="video/mp4">
+          </video>
+          <h3 class="subtitle is-5"><span style="color: green;"><b>Step label:</b> EV1 & EV2 exit airlock.</span></h3>
+        </div>
+        <div class="column is-half has-text-centered">
+          <video controls width="90%">
+            <source src="static/videos/step_recog2.mp4" type="video/mp4">
+          </video>
+          <h3 class="subtitle is-5"><span style="color: green;"><b>Step label:</b> Bob installs adapter plate in open slot 2.</span></h3>
         </div>
       </div>
+      <br>
+      <h3 class="title is-4 has-text-centered">Video Question Answering</h3>
+      <p style="text-align: justify; width: 80%; margin: 0 auto;">
+        Video question answering includes 376 multi-choice questions with hour-long query videos.
+        They include questions automatically generated from step annotations and manually annotated questions.<br>
+        <b>Examples:</b><br>
+        (As an entire video is hour-long, we only show a few key clips here.)
+      </p>
+      <br>
+      <div class="columns is-centered" style="width: 100%; margin: 0 auto;">
+        <div class="column is-one-fifth has-text-centered">
+          <video controls width="100%">
+            <source src="static/videos/qa1_0min.mp4" type="video/mp4">
+          </video>
+          <h3 class="subtitle is-5">0th minute</h3>
+        </div>
+        <div class="column is-one-fifth has-text-centered">
+          <video controls width="100%">
+            <source src="static/videos/qa1_6min.mp4" type="video/mp4">
+          </video>
+          <h3 class="subtitle is-5">6th minute</h3>
+        </div>
+        <div class="column is-one-fifth has-text-centered">
+          <video controls width="100%">
+            <source src="static/videos/qa1_18min.mp4" type="video/mp4">
+          </video>
+          <h3 class="subtitle is-5">18th minute</h3>
+        </div>
+        <div class="column is-one-fifth has-text-centered">
+          <video controls width="100%">
+            <source src="static/videos/qa1_42min.mp4" type="video/mp4">
+          </video>
+          <h3 class="subtitle is-5">42nd minute</h3>
+        </div>
+        <div class="column is-one-fifth has-text-centered">
+          <video controls width="100%">
+            <source src="static/videos/qa1_60min.mp4" type="video/mp4">
+          </video>
+          <h3 class="subtitle is-5">60th minute</h3>
+        </div>
+      </div>
+      <p style="text-align: justify; width: 80%; margin: 0 auto;">
+        <b>Question:</b> Which of the following tasks happens after the astronaut leaves from the robotic arm?<br>
+        <b>(A)</b> Robotic arm takes Luca to AMS<br>
+        <span style="color: green;"><b>(B)</b> Luca & Drew connect power and data cables</span><br>
+        <b>(C)</b> Drew move to ELC 2<br>
+        <b>(D)</b> Drew hands Luca the pump system<br>
+      </p>
+      <br>
+      <div class="columns is-centered" style="width: 100%; margin: 0 auto;">
+        <div class="column is-one-fifth has-text-centered">
+          <video controls width="100%">
+            <source src="static/videos/qa2_0min.mp4" type="video/mp4">
+          </video>
+          <h3 class="subtitle is-5">0th minute</h3>
+        </div>
+        <div class="column is-one-fifth has-text-centered">
+          <video controls width="100%">
+            <source src="static/videos/qa2_18min.mp4" type="video/mp4">
+          </video>
+          <h3 class="subtitle is-5">18th minute</h3>
+        </div>
+        <div class="column is-one-fifth has-text-centered">
+          <video controls width="100%">
+            <source src="static/videos/qa2_36min.mp4" type="video/mp4">
+          </video>
+          <h3 class="subtitle is-5">36th minute</h3>
+        </div>
+        <div class="column is-one-fifth has-text-centered">
+          <video controls width="100%">
+            <source src="static/videos/qa2_48min.mp4" type="video/mp4">
+          </video>
+          <h3 class="subtitle is-5">48th minute</h3>
+        </div>
+        <div class="column is-one-fifth has-text-centered">
+          <video controls width="100%">
+            <source src="static/videos/qa2_60min.mp4" type="video/mp4">
+          </video>
+          <h3 class="subtitle is-5">60th minute</h3>
+        </div>
+      </div>
+      <p style="text-align: justify; width: 80%; margin: 0 auto;">
+        <b>Question:</b> In which part of the video does the task that EV1 & EV2 install respective bags on worksites happen?<br>
+        <b>(A)</b> The task does not happen in the video<br>
+        <b>(B)</b> The first third of the video<br>
+        <span style="color: green;"><b>(C)</b> The last third of the video</span><br>
+        <b>(D)</b> The middle third of the video<br>
+      </p>
       </div>
     </div>
   </div>
 </section>
 <!--End Tasks -->
-
+<hr>
 <!-- Evaluations-->
 <section class="hero is-small"> 
   <div class="hero-body" style="font-size: large;">
     <div class="container">
       <h2 class="title is-3">Evaluation Results</h2>
-        <p>We evaluate a few pretrained models in both zero-shot and fine-tuning scenarios. All the models perform poorly on our tasks and significantly worse than humans.</p>
+        <p style="text-align: justify; width: 80%; margin: 0 auto;">
+        We evaluate a few Vision-Language Models and Multi-modal Large Language Models.
+        All the models perform poorly on our tasks and significantly worse than humans.
+      </p>
         <div id="results-carousel" class="carousel results-carousel">
           <div class="item">
            <!-- Your image here -->
-            <img src="static/images/table_steprecog.png" alt="steprecog"/>
+            <img src="static/images/table_steprecog.png" alt="steprecog" style="width: 60%; height: auto;"/>
            <h2 class="subtitle has-text-centered">
-            Evaluation on step recognition task
+            <b>Evaluation on the step recognition task</b>
            </h2>
          </div>
          <div class="item">
            <!-- Your image here -->
-           <img src="static/images/table_retrieval.png" alt="retrieval"/>
+           <img src="static/images/table_qa.png" alt="qa" style="width: 50%; height: auto;"/>
            <h2 class="subtitle has-text-centered">
-            Evaluation on intra-video retrieval task
+            <b>Evaluation on the video question answering task</b>
            </h2>
          </div>
      </div>
@@ -332,7 +459,7 @@
       <h2 class="title">BibTeX</h2>
       <pre><code>@misc{krishnan2023spacewalk18,
         title={Spacewalk-18: A Benchmark for Multimodal and Long-form Procedural Video Understanding in Novel Domains}, 
-        author={Rohan Myer Krishnan and Zitian Tang and Zhiqiu Yu and Chen Sun},
+        author={Zitian Tang and Rohan Myer Krishnan and Zhiqiu Yu and Chen Sun},
         year={2023},
         eprint={2311.18773},
         archivePrefix={arXiv},

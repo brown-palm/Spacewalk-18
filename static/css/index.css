@@ -115,10 +115,15 @@ body {
 }
 
 .results-carousel .item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;
   margin: 5px;
   overflow: hidden;
   padding: 20px;
   font-size: 0;
+  height: 100%;
 }
 
 .results-carousel video {
